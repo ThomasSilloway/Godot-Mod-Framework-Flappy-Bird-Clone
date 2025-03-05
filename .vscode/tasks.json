@@ -26,6 +26,29 @@
 			}
 		},
 		{
+			"label": "Build Settings",
+			"type": "shell",
+			"command": "${workspaceFolder}/projects/settings_menu/build.bat",
+			"problemMatcher": []
+		},
+		{
+			"label": "Build Flappy Bird",
+			"type": "shell",
+			"command": "${workspaceFolder}/projects/flappy_bird_clone/build.bat",
+			"problemMatcher": []
+		},
+		{
+			"label": "Run Flappy Bird Tests",
+			"type": "shell",
+			"command": "${workspaceFolder}/projects/flappy_bird_clone/run_tests.bat",
+			"group": "test",
+			"presentation": {
+				"reveal": "always",
+				"panel": "new"
+			},
+			"problemMatcher": []
+		},
+		{
 			"label": "Run Godot Game",
 			"type": "shell",
 			"command": "uv run c:/GithubRepos/Test/run-godot-game.py",

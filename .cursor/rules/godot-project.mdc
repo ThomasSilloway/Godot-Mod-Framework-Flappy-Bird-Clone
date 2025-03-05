@@ -1,8 +1,8 @@
 ---
 description: Rules for updating godot project script, scene or other related files
 globs: *.gd, *.tscn, *.tres
-alwaysApply: false
 ---
+
 # Overview
 
 - Assume Godot 4.3 is being used
@@ -24,4 +24,3 @@ alwaysApply: false
 
 ## Implementation details
 - Ensure there's a newline at the end of each file
-
