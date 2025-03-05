@@ -1,0 +1,123 @@
+[gd_scene load_steps=13 format=3 uid="uid://b3lgyil2g6x0l"]
+
+[ext_resource type="Texture2D" uid="uid://dnilgkt1fc7m0" path="res://icon.svg" id="1_ewx64"]
+[ext_resource type="Script" uid="uid://ce6dlvcrs6tn1" path="res://flappy_bird_clone/scripts/player.gd" id="1_mhnqh"]
+[ext_resource type="Resource" uid="uid://rlirmoe5vaol" path="res://flappy_bird_clone/default_settings.tres" id="2_ife3q"]
+[ext_resource type="PackedScene" uid="uid://bc6k4ab6neul6" path="res://flappy_bird_clone/obstacle_full.tscn" id="4_eam3o"]
+[ext_resource type="Script" uid="uid://c16lku4d5xqnr" path="res://flappy_bird_clone/scripts/score_manager.gd" id="5_score"]
+[ext_resource type="Script" uid="uid://1wknlqmfmq5v" path="res://flappy_bird_clone/scripts/music_manager.gd" id="6_music"]
+[ext_resource type="Script" uid="uid://cafsjow87eedq" path="res://flappy_bird_clone/scripts/audio_manager.gd" id="7_audio"]
+[ext_resource type="Script" uid="uid://cvmgrdoevil2q" path="res://flappy_bird_clone/scripts/game_manager.gd" id="8_game"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_alaj6"]
+size = Vector2(1169, 44)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_465e8"]
+radius = 25.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eam3o"]
+size = Vector2(249, 790)
+
+[sub_resource type="SystemFont" id="SystemFont_eam3o"]
+
+[node name="FlappyBirdGame" type="Node2D"]
+
+[node name="Floor" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(576.5, 644)
+shape = SubResource("RectangleShape2D_alaj6")
+
+[node name="ColorRect" type="ColorRect" parent="Floor"]
+offset_left = -11.0
+offset_top = 622.0
+offset_right = 1158.0
+offset_bottom = 668.0
+color = Color(0.268533, 0.191203, 0.115566, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 323)
+
+[node name="Player" type="CharacterBody2D" parent="." groups=["player"]]
+script = ExtResource("1_mhnqh")
+settings = ExtResource("2_ife3q")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(272, 355)
+scale = Vector2(0.445313, 0.445313)
+texture = ExtResource("1_ewx64")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(272, 355)
+shape = SubResource("CircleShape2D_465e8")
+
+[node name="Obstacle" parent="." instance=ExtResource("4_eam3o")]
+position = Vector2(853, 350)
+
+[node name="Obstacle2" parent="." instance=ExtResource("4_eam3o")]
+position = Vector2(1143, 476)
+
+[node name="Obstacle3" parent="." instance=ExtResource("4_eam3o")]
+position = Vector2(1419, 278)
+
+[node name="Obstacle4" parent="." instance=ExtResource("4_eam3o")]
+position = Vector2(1709, 448)
+
+[node name="Obstacle5" parent="." instance=ExtResource("4_eam3o")]
+position = Vector2(1993, 184)
+
+[node name="Obstacle6" parent="." instance=ExtResource("4_eam3o")]
+position = Vector2(2270, 448)
+
+[node name="ScreenEdgeCollider" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScreenEdgeCollider"]
+position = Vector2(-145.5, 328)
+shape = SubResource("RectangleShape2D_eam3o")
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ScoreBackground" type="ColorRect" parent="HUD"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 21.0
+offset_right = 112.0
+offset_bottom = 70.0
+color = Color(0.541176, 0.541176, 0.541176, 0.592157)
+
+[node name="ScoreLabel" type="Label" parent="HUD/ScoreBackground"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("SystemFont_eam3o")
+theme_override_font_sizes/font_size = 32
+text = "9999"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreManager" type="Node" parent="."]
+script = ExtResource("5_score")
+
+[node name="MusicManager" type="Node" parent="."]
+script = ExtResource("6_music")
+music_volume_db = -9.48
+
+[node name="AudioManager" type="Node" parent="."]
+script = ExtResource("7_audio")
+jump_volume_db = -15.48
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("8_game")

@@ -47,8 +47,10 @@ echo Full project path being used: %project_path%%main_project_path%
 
 set export_path_mod=mods\
 set mod_filetype=.zip
-@REM Example for configuring mods
-@REM set mod_name_00=main_menu
+set mod_name_00=main_menu
+set mod_name_01=settings_menu
+set mod_name_02=flappy_bird_clone
+set mod_name_03=crazy_bird_mod
 
 :: Create directories
 mkdir "%export_path%"
@@ -59,10 +61,10 @@ copy "%scripts_path%mod_order_template.yaml" "%export_path%%export_path_mod%mod_
 
 :: Export projects
 %godot_path% --headless --path %project_path%%startup_project_path% --export-release "Windows Desktop" %export_path%%export_path_file%
-
-@REM Example for building mods
-@REM %godot_path% --headless --path %project_path%%mod_name_00% --export-pack "Windows Desktop" %export_path%%export_path_mod%%mod_name_00%%mod_filetype%
-
+%godot_path% --headless --path %project_path%%mod_name_00% --export-pack "Windows Desktop" %export_path%%export_path_mod%%mod_name_00%%mod_filetype%
+%godot_path% --headless --path %project_path%%mod_name_01% --export-pack "Windows Desktop" %export_path%%export_path_mod%%mod_name_01%%mod_filetype%
+%godot_path% --headless --path %project_path%%mod_name_02% --export-pack "Windows Desktop" %export_path%%export_path_mod%%mod_name_02%%mod_filetype%
+%godot_path% --headless --path %project_path%%mod_name_03% --export-pack "Windows Desktop" %export_path%%export_path_mod%%mod_name_03%%mod_filetype%
 :: Check if the main executable was created successfully
 if exist "%export_path%%run_path_file%" (
 	echo Build successful. Running the game...
