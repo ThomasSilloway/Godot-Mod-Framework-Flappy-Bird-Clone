@@ -17,10 +17,14 @@ Build the game as a collection of mods to ensure that your game properly support
  - Shows how to handle mod dependencies and load order
 ### Known Bugs
  - Fullscreen setting may be bugged on some monitors
- - GUT unit tests are included, but the add-on is not included in the project
- - Futura font is referenced but not added to the repo
+
+### Unit Testing Branch - GUT
+ - There's a branch that includes Godot Unit Test (GUT) tests for the game, but since GUT is a plugin, it is not included in the branch
+ - To set it up, just clone the GUT branch and install the GUT plugin
 
 ## Tech Details
+
+### Mod Setup
 
 - Each mod is a separate godot project
 - `startup` is the main project that does loading mods. Handles global things too like Settings, Config
@@ -35,7 +39,8 @@ Build the game as a collection of mods to ensure that your game properly support
   - Shows how to override audio files and modify game behavior without changing the original mod
   - Uses the same folder structure as `flappy_bird_clone` to specify which files to replace
 
-Repo uses Git LFS for large files
+### Misc
+ - Repo uses Git LFS for large files
 
 ## Usage - Manual
 
