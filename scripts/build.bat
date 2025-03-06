@@ -24,15 +24,15 @@ set datetime=%year%-%month%-%day%_%hour%-%minute%-%second%
 :: Define paths
 :: Set your godot executable path here
 set godot_path="C:\Godot\Godot_v4.4-beta4_win64"
-
-:: Get the directory where this script is located
+:: Get the script's directory
 set "script_dir=%~dp0"
-:: Remove trailing backslash
-set "script_dir=%script_dir:~0,-1%"
+pushd %script_dir%..
+set "workspace_root=%cd%"
+popd
 
 :: Set paths relative to script location
-set project_path=%script_dir%\..\projects\
-set export_path=%script_dir%\..\build\%datetime%\
+set project_path=%workspace_root%\projects\
+set export_path=%workspace_root%\build\%datetime%\
 set export_path_file=startup.exe
 set run_path_file=startup.console.exe
 set startup_project_path=startup\
@@ -42,8 +42,6 @@ set scripts_path=%script_dir%\
 echo Current script directory: %script_dir%
 echo Project path: %project_path%
 echo Export path: %export_path%
-echo Main project path: %main_project_path%
-echo Full project path being used: %project_path%%main_project_path%
 
 set export_path_mod=mods\
 set mod_filetype=.zip
