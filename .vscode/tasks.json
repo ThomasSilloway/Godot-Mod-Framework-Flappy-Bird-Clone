@@ -26,6 +26,12 @@
 			}
 		},
 		{
+			"label": "Build Main Menu",
+			"type": "shell",
+			"command": "${workspaceFolder}/projects/main_menu/build.bat",
+			"problemMatcher": []
+		},
+		{
 			"label": "Build Settings",
 			"type": "shell",
 			"command": "${workspaceFolder}/projects/settings_menu/build.bat",

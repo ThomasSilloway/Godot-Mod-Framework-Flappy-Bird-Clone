@@ -7,4 +7,4 @@ set "workspace_root=%cd%"
 popd
 
 :: Call the shared build script with the mod name
-call "%workspace_root%\scripts\build_one_mod.bat" flappy_bird_clone
+call "%workspace_root%\scripts\build_one_mod.bat" main_menu
