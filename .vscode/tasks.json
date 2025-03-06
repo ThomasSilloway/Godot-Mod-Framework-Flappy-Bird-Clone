@@ -44,6 +44,12 @@
 			"problemMatcher": []
 		},
 		{
+			"label": "Build Crazy Bird Mod",
+			"type": "shell",
+			"command": "${workspaceFolder}/projects/crazy_bird_mod/build.bat",
+			"problemMatcher": []
+		},
+		{
 			"label": "Run Flappy Bird Tests",
 			"type": "shell",
 			"command": "${workspaceFolder}/projects/flappy_bird_clone/run_tests.bat",
